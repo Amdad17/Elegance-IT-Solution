@@ -1,13 +1,13 @@
-// src/components/TaskList.js
+
 import TaskItem from "./TaskItem";
 import "../styles/TaskManager.css";
 
 const TaskList = ({ tasks, toggleComplete, deleteTask, filter }) => {
-  // Filter tasks based on the selected filter
+  
   const filteredTasks = tasks.filter(task => {
     if (filter === 'active') return !task.completed;
     if (filter === 'completed') return task.completed;
-    return true; // 'all' filter
+    return true; 
   });
 
   return (

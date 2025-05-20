@@ -1,4 +1,4 @@
-// src/App.js
+
 import { useState, useEffect } from "react";
 import TaskInput from "./components/TaskInput";
 import TaskList from "./components/TaskList";
@@ -9,7 +9,7 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState('all');
 
-  // Load tasks from localStorage on initial render
+  
   useEffect(() => {
     const savedTasks = localStorage.getItem('tasks');
     if (savedTasks) {
@@ -17,29 +17,29 @@ function App() {
     }
   }, []);
 
-  // Save tasks to localStorage whenever tasks change
+ 
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
 
-  // Add a new task
+ 
   const addTask = (title) => {
     const newTask = {
-      id: Date.now(), // Use timestamp as unique ID
+      id: Date.now(), 
       title,
       completed: false
     };
     setTasks([...tasks, newTask]);
   };
 
-  // Toggle task completion status
+  
   const toggleComplete = (taskId) => {
     setTasks(tasks.map(task => 
       task.id === taskId ? { ...task, completed: !task.completed } : task
     ));
   };
 
-  // Delete a task
+  
   const deleteTask = (taskId) => {
     setTasks(tasks.filter(task => task.id !== taskId));
   };
